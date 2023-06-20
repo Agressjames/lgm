@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      width: 320px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .result {
+      font-size: 36px;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 100%;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 15px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d0d0d0;
+    }
+
+    .button-operator {
+      background-color: #ff9500;
+      color: #fff;
+    }
+
+    .button-operator:hover {
+      background-color: #e18300;
+    }
+
+    .button-equal {
+      background-color: #007aff;
+      color: #fff;
+      grid-column: span 2;
+    }
+
+    .button-equal:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="result" id="result" readonly>
+    <div class="buttons">
+      <button onclick="appendToResult(7)">7</button>
+      <button onclick="appendToResult(8)">8</button>
+      <button onclick="appendToResult(9)">9</button>
+      <button class="button-operator" onclick="appendToResult('/')">÷</button>
+      <button onclick="appendToResult(4)">4</button>
+      <button onclick="appendToResult(5)">5</button>
+      <button onclick="appendToResult(6)">6</button>
+      <button class="button-operator" onclick="appendToResult('*')">×</button>
+      <button onclick="appendToResult(1)">1</button>
+      <button onclick="appendToResult(2)">2</button>
+      <button onclick="appendToResult(3)">3</button>
+      <button class="button-operator" onclick="appendToResult('-')">−</button>
+      <button onclick="appendToResult(0)">0</button>
+      <button onclick="appendToResult('.')">.</button>
+      <button class="button-equal" onclick="calculateResult()">=</button>
+      <button class="button-operator" onclick="appendToResult('+')">+</button>
+      <button onclick="clearResult()">C</button>
+    </div>
+  </div>
+
+  <script>
+    function appendToResult(value) {
+      document.getElementById('result').value += value;
+    }
+
+    function calculateResult() {
+      var result = document.getElementById('result').value;
+      var answer = eval(result);
+      document.getElementById('result').value = answer;
+    }
+
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>
