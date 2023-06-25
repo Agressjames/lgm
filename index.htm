@@ -105,3 +105,13 @@
       var output = document.getElementById('output').value;
       var result = eval(output);
       document.getElementById('output').
+      value = result;
+      document.getElementById('output').value = result;
+    }
+
+    function clearOutput() {
+      document.getElementById('output').value = '';
+    }
+  </script>
+</body>
+</html>
